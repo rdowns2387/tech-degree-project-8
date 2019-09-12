@@ -10,7 +10,7 @@ app.set('view engine', 'pug');
 
 app.use('/static', express.static('public'));
 
-// JSON Parser
+// parse json to use throughout app
 app.use(express.json());
 app.use (express.urlencoded({extended: false}))
 
