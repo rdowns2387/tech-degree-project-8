@@ -98,14 +98,12 @@ app.post('/book/:id/', async(req, res, next) => {
   })
   } catch (error) {
     if(error.name === 'SequelizeValidationError'){
-      const book = req.body;
-      book.id = req.params.id
       const errors = error.errors
-      res.render('book-detail', { errors, book });
+      res.render('new_book', {errors})
     } else {
       console.error(error)
       error.status = 500;
-      error.message = "Looks like something went wrong."
+      error.message = "Something went wrong with the database"
       next(error);
     }
   }
